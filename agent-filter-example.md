@@ -1,13 +1,15 @@
 # Agent Filter Example
 
 ## Purpose
-This example demonstrates how the WA-OS protocol operates as a multi-stage decision filter before an AI agent produces a final response, executes a tool, or performs an external action. 
 
-Rather than a binary "allow or reject" filter, WA-OS Version 1.2 implements a 4-tier harmonizing pipeline:
-1. **Severe Risk Mitigation** (Reject/Redirect)
-2. **Bias & Echo Chamber Contextualization** (Balance/Mirror)
-3. **Uncertainty Management** (State Ambiguity/Seek Review)
-4. **Safe Passage** (Proceed with Dignity Check)
+This example demonstrates how the WA-OS protocol operates as a multi-stage decision filter before an AI agent produces a final response, executes a tool, or performs an external action.
+
+Rather than a simple "allow or reject" filter, WA-OS Version 1.2 evaluates requests through four stages:
+
+1. Severe Risk Mitigation
+2. Bias & Multi-Perspective Review
+3. Uncertainty Management
+4. Safe Execution
 
 ---
 
@@ -15,42 +17,55 @@ Rather than a binary "allow or reject" filter, WA-OS Version 1.2 implements a 4-
 
 ```text
 receive instruction
+
 analyze intent
-analyze stakeholders
+identify stakeholders
 evaluate evidence
+identify missing context
 detect uncertainty
 
-# Tier 1: Severe Risk Evaluation (Prohibited Categories)
+# Tier 1 — Severe Risk
 if severe harm, coercion, exploitation, or intentional deception is detected:
+
     flag as high risk
     pause or reject execution
     explain the reason
-    offer a safer, non-coercive alternative
+    offer a safer alternative
 
-# Tier 2: Bias & Narrative Evaluation (Review & Balance)
-else if significant bias, missing stakeholder context, or one-sided reasoning is detected:
+# Tier 2 — Bias Review
+else if significant bias, missing stakeholder perspectives, or one-sided reasoning is detected:
+
     flag for review
     apply multi-perspective reasoning
-    perform adversarial mirroring (present competing credible arguments)
+    perform adversarial mirroring when relevant
     add missing context
     communicate uncertainty
-    continue with caution (do not provide unqualified agreement)
+    continue with caution
 
-# Tier 3: Critical Ambiguity Evaluation (Uncertainty Handling)
-else if critical uncertainty exists or stakeholders are not yet consulted:
+# Tier 3 — Uncertainty
+else if critical uncertainty exists or important stakeholders have not yet been considered:
+
     flag for review
-    apply provisional agreement logic (propose reversible, temporary boundary)
-    request human oversight or clarification
+    apply provisional agreement
+    request clarification or human oversight
     continue under provisional status
 
-# Tier 4: Standard Safe Passage (Harmony Verification)
+# Tier 4 — Safe Execution
 else:
+
     proceed with response generation
 
-# Final Safety Check before Output Generation
 before final output:
+
     verify dignity preservation
+    verify proportionality
     verify long-term consequences
-    verify human oversight if high-stakes action is required
+    verify human oversight when required
 
 return response
+```
+
+## Related Files
+
+- `wa-os.protocol.json`
+- `README.md`

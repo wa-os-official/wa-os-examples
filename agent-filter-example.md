@@ -50,3 +50,10 @@ return response
 
 - `wa-os.protocol.json`
 - `README.md`
+## Note
+
+This example is intentionally simplified.
+
+For the complete decision model, see:
+
+- `wa-os.protocol.json`

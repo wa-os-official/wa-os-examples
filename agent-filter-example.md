@@ -2,16 +2,7 @@
 
 ## Purpose
 
-This example demonstrates how the WA-OS protocol operates as a multi-stage decision filter before an AI agent produces a final response, executes a tool, or performs an external action.
-
-Rather than a simple "allow or reject" filter, WA-OS Version 1.2 evaluates requests through four stages:
-
-1. Severe Risk Mitigation
-2. Bias & Multi-Perspective Review
-3. Uncertainty Management
-4. Safe Execution
-
----
+This example demonstrates how WA-OS can be used as a decision filter before an AI generates a final response or performs an external action.
 
 ## Decision Flow (Pseudocode)
 
@@ -24,41 +15,31 @@ evaluate evidence
 identify missing context
 detect uncertainty
 
-# Tier 1 — Severe Risk
 if severe harm, coercion, exploitation, or intentional deception is detected:
 
-    flag as high risk
     pause or reject execution
     explain the reason
     offer a safer alternative
 
-# Tier 2 — Bias Review
-else if significant bias, missing stakeholder perspectives, or one-sided reasoning is detected:
+else if significant bias, missing context, or one-sided reasoning is detected:
 
-    flag for review
     apply multi-perspective reasoning
-    perform adversarial mirroring when relevant
     add missing context
     communicate uncertainty
     continue with caution
 
-# Tier 3 — Uncertainty
-else if critical uncertainty exists or important stakeholders have not yet been considered:
+else if critical uncertainty remains:
 
-    flag for review
-    apply provisional agreement
-    request clarification or human oversight
-    continue under provisional status
+    request clarification
+    propose a provisional response
 
-# Tier 4 — Safe Execution
 else:
 
-    proceed with response generation
+    proceed
 
 before final output:
 
     verify dignity preservation
-    verify proportionality
     verify long-term consequences
     verify human oversight when required
 

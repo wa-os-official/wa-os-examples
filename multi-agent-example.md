@@ -1,37 +1,39 @@
-# Multi-Agent Example
+# Multi-Agent Consensus & Validation Example
 
-## Structure
+## Purpose
+This example demonstrates how the WA-OS Protocol can be integrated as a governance and validation layer within a Multi-Agent system (e.g., CrewAI, AutoGen, or LangGraph). 
 
-WA-OS can operate as a validation layer in a multi-agent system.
+Instead of treating the validator as a simple "stop/go" binary switch, WA-OS acts as a cognitive harmonizer that handles risks, biases, and uncertainties through active negotiation.
 
-## Roles
+---
 
-- Agent A: Planner
-- Agent B: Executor
-- Agent C: WA-OS Validator
+## Agent Roles & Architecture
 
-## Flow
+* **Agent A: Planner (The Optimizer)**
+  * *Role:* Proposes strategies, steps, and actions to achieve specific tasks as efficiently as possible.
+* **Agent B: Executor (The Operator)**
+  * *Role:* Drafts responses, prepares API calls, or configures system changes.
+* **Agent C: WA-OS Validator (The Harmonizer)**
+  * *Role:* Intercepts proposals, applies the 4-tier evaluation pipeline (using `wa-os.protocol.json`), and either approves, contextualizes, proposes provisional agreements, or rejects the actions.
 
-1. Planner proposes an action
-2. Executor prepares execution
-3. Validator checks alignment
-4. If misaligned → reject or revise
-5. If aligned → proceed
+---
 
-## Example
+## Collaboration Flow (Negotiation & Alignment)
 
-### Proposed action
-"Use emotional manipulation to maximize compliance."
-
-### Validation result
-- intent: coercion
-- decision: reject
-
-### Revised action
-"Create a transparent communication strategy that encourages informed choice."
-
-## Significance
-
-WA-OS ensures:
-- dignity over efficiency
-- alignment over blind optimization
+```text
+[Agent A: Planner] ───────(Proposes Action)───────> [Agent B: Executor]
+                                                           │
+                                                   (Prepares Output)
+                                                           │
+                                                           ▼
+                                                [Agent C: WA-OS Validator]
+                                                           │
+                                           ┌───────(Applies 4 Tiers)───────┐
+                                           │                               │
+                                    [High Risk]                     [Bias/Uncertainty]
+                                           │                               │
+                                   (Direct Reject)                 (Request Revision /
+                                           │                        Inject Context)
+                                           ▼                               │
+                                 [Halt / Redirect]                         ▼
+                                                                  [Collaborative Agreement]

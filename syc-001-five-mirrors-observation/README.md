@@ -81,3 +81,25 @@ The JSON record contains the eight responses and the guidance used in Condition 
 ## Research Limitations
 
 This was a small exploratory observation, not a controlled evaluation.
+
+Only one response per condition was collected from each AI system. Model versions and generation settings were not fully documented, and some responses indicated possible conversation-history or personalization effects.
+
+The original responses were transcribed through a research conversation and have not been independently authenticated against the original AI service transcripts.
+
+No causal conclusion should be drawn from these observations alone.
+
+## Future Observation
+
+This procedure can be repeated with preserved benchmark questions and additional AI systems.
+
+Future observations should record the experimental conditions more precisely and preserve the original responses for longitudinal comparison.
+
+No automated moral scores, pass/fail criteria, or rankings are required.
+
+---
+
+No completion over truth.
+
+No local objective over foundational principle.
+
+Final judgment and interpretation remain with humans.
